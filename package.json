@@ -1,0 +1,15 @@
+{
+  "name": "xmas",
+  "version": "0.0.1",
+  "description": "Webcredible Xmas site",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Webcredible",
+  "license": "ISC",
+  "private": "true",
+  "scripts": {
+    "deploy": "gh-pages -d site"
+  }
+}

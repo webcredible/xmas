@@ -1,0 +1,149 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+
+    <!-- Header -->
+    <div class="header">
+      <div class="container">
+
+        <img class="header__image" src="images/header.png">
+
+      </div>
+    </div>
+
+    <!-- Video player -->
+    <div class="video">
+      <div class="container">
+
+        <div class="video__player">
+          <iframe
+            class="video__embed"
+            width="560" height="315"
+            src="https://www.youtube.com/embed/a8qE6WQmNus"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Thumbnail grid -->
+    <div class="grid">
+      <div class="container">
+
+        <div class="grid__wrapper">
+
+          <div class="grid__sizer"></div>
+          <div class="grid__gutter-sizer"></div>
+
+          <div class="grid__item" data-video="y8wifucZA6Y">
+            <img class="grid__item__image" src="images/boxes/1.jpg">
+          </div>
+
+          <div class="grid__item" data-video="Ci1M_bbdeZE">
+            <img class="grid__item__image" src="images/boxes/2.jpg">
+          </div>
+
+          <div class="grid__item" data-video="IIE3fG0Fsmk">
+            <img class="grid__item__image" src="images/boxes/3.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/4.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/5.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/6.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/7.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/8.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/9.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/10.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/11.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/12.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/13.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/14.jpg">
+          </div>
+
+          <div class="grid__item">
+            <img class="grid__item__image" src="images/boxes/15.jpg">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <script>
+
+      var youtubeUrl = 'https://www.youtube.com/embed/';
+      var player = $(".video__embed");
+
+
+      $('.grid__wrapper').isotope({
+        // options
+        masonry: {
+          columnWidth: '.grid__sizer',
+          gutter: '.grid__gutter-sizer',
+        },
+        itemSelector: '.grid__item',
+        percentPosition: true
+      });
+
+      $(".grid__item").on('click', function(e) {
+        var video_id = $(this).data( "video" );
+        if(video_id) {
+          // Set active class
+          $(this)
+            .addClass('is-active')
+            .siblings()
+              .removeClass('is-active')
+          // Reset player URL
+          player.attr('src',youtubeUrl + video_id)
+          // Scroll to video
+          $('html, body').animate({
+            scrollTop: $(".header:first").offset().top
+          }, 500);
+        }
+      })
+
+    </script>
+  </body>
+
+</html>
